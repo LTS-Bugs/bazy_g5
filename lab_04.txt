@@ -33,3 +33,37 @@ b)
 update statek set max_ladownosc=max_ladownosc*0.7 where data_wodowania between '1901-01-01' and '2000-12-31'; 
 
 c)
+
+4.
+a)
+
+alter table postac modify rodzaj enum('wiking','ptak','kobieta','syrena','waz');
+insert into postac (pesel,id_postaci,nazwa,rodzaj,data_ur,wiek) values ('77239312108','8','Loko','waz','1700-06-09','320');
+
+b),c)
+create table marynarz like postac;
+insert into marynarz select * from postac where statek is not null;
+insert into marynarz2 select * from postac where statek is not null;
+
+5.
+
+a)
+update postac set statek = NULL;
+
+b)
+delete from postac where id_postaci = 4;
+
+c)
+delete from statek;	
+
+d)
+alter table postac drop foreign key postac_ibfk_1;
+drop table statek;
+
+e)
+create table zwierz(id int(4) primary key auto_increment not null,nazwa varchar(45),wiek int(3));
+
+f)
+insert into zwierz select * from postac where rodzaj = "ptak" or rodzaj = "waz";
+//
+insert into zwierz select id_postaci, nazwa, wiek from postac where rodzaj="ptak" or rodzaj="waz";
