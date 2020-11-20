@@ -42,3 +42,21 @@ select * from zasob order by waga;
 
 3. sortowanie + LIMIT
 select * from kreatura order by dataUr limit 5;
+
+zad4)
+1.
+select distinct rodzaj from kreatura;
+
+2.
+select concat(nazwa,' - ',rodzaj)from kreatura where rodzaj like 'wi%';
+
+3.
+select nazwa,waga*ilosc from zasob where year(dataPozyskania)between 2000 and 2007;
+
+zad5)
+1.
+SELECT nazwa,CONCAT('netto: ',waga*0.7,' odpad: ',waga*0.3) FROM zasob WHERE rodzaj LIKE 'jedzenie';
+2.
+select * from zasob where rodzaj is NULL;
+3.
+select distinct(rodzaj) from zasob where nazwa like 'Ba%' or nazwa like '%os' order by rodzaj asc;
