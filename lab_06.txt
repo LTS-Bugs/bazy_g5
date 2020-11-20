@@ -1,0 +1,28 @@
+zad1)
+1.
+select avg(waga) as srednia_waga from kreatura where rodzaj='wiking';
+
+2.
+select rodzaj, count(*),avg(waga) as srednia_waga from kreatura group by rodzaj;
+
+3.
+select rodzaj, avg(2020-year(dataUr)) as sredni_wiek from kreatura group by rodzaj;
+
+
+zad2)
+1.
+select rodzaj, sum(waga) from kreatura group by rodzaj;
+
+2.
+select nazwa, avg(waga) as "waga rzeczy" from zasob where ilosc>=4 group by nazwa having sum(waga)>10;
+
+3.
+select rodzaj, count(distinct (nazwa)) as liczba from zasob group by rodzaj having liczba>1;
+
+
+zad3)
+1.
+select nazwa, sum(ilosc) from kreatura k , ekwipunek e  where k.idKreatury=e.idKreatury group by nazwa;
+
+2.
+SELECT k.nazwa, z.nazwa FROM kreatura k, ekwipunek e, zasob z WHERE k.idKreatury=e.idKreatury AND e.idZasobu=z.idZasobu;
