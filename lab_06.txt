@@ -26,3 +26,17 @@ select nazwa, sum(ilosc) from kreatura k , ekwipunek e  where k.idKreatury=e.idK
 
 2.
 SELECT k.nazwa, z.nazwa FROM kreatura k, ekwipunek e, zasob z WHERE k.idKreatury=e.idKreatury AND e.idZasobu=z.idZasobu;
+
+3.
+select k.idKreatury, k.nazwa, e.Idkreatury from kreatura k left join ekwipunek e on k.idKreatury=e.idKreatury is null;
+
+
+zad4)
+1.
+select * from zasob z,kreatura natural join ekwipunek where kreatura.rodzaj='wiking' and year(kreatura.dataUr) between 1670 and 1679 and z.idZasobu=ekwipunek.idZasobu;
+
+2.
+SELECT k.nazwa, z.rodzaj, k.dataUr FROM kreatura k INNER JOIN ekwipunek e ON k.idKreatury = e.idKreatury INNER JOIN zasob z ON z.idZasobu = e.idZasobu WHERE z.rodzaj='jedzenie' ORDER BY k.dataUr DESC LIMIT 5;
+
+3.
+SELECT k.nazwa, k2.nazwa FROM kreatura k, kreatura k2 where k.idKreatury=k2.idKreatury+5;
